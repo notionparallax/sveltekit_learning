@@ -47,9 +47,9 @@
 			value={[slider_min, slider_max]}
 			thumb={[true, true]}
 			persistentThumb
-			min="3"
-			max="100"
-			step="97">Article range</Slider
+			min={3}
+			max={100}
+			step={97}>Article range</Slider
 		>
 		<Switch bind:checked={values[0]} inset>Inset {values[0]}</Switch>
 		<Switch bind:checked={values[1]} inset>Inset {values[1]}</Switch>

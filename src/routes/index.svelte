@@ -5,15 +5,27 @@
 <script>
 	import Counter from '$lib/Counter.svelte';
 
-	// import MaterialApp from 'svelte-materialify/src/components/MaterialApp/MaterialApp.svelte';
-	// import Button from 'svelte-materialify/src/components/Button/Button.svelte';
-	import { MaterialApp, Button, Chip, Slider, Switch } from 'svelte-materialify';
-
+	import {
+		MaterialApp,
+		Button,
+		Chip,
+		Slider,
+		Switch,
+		Tabs,
+		Tab,
+		Window,
+		WindowItem,
+		AppBar,
+		Icon
+	} from 'svelte-materialify';
+	//Icons: get list from https://materialdesignicons.com/
+	import { mdiAxe, mdiBathtub, mdiHome } from '@mdi/js';
 	let theme = 'light';
 
 	let slider_min = 10;
 	let slider_max = 50;
 	const values = [false, true];
+	let windowValue = 0;
 </script>
 
 <svelte:head>
@@ -53,6 +65,52 @@
 		>
 		<Switch bind:checked={values[0]} inset>Inset {values[0]}</Switch>
 		<Switch bind:checked={values[1]} inset>Inset {values[1]}</Switch>
+
+		<AppBar>
+			<span slot="title"> Title </span>
+			<div slot="extension">
+				<Tabs class="green-text" bind:windowValue fixedTabs>
+					<div slot="tabs">
+						<Tab><Icon class="primary-text" path={mdiHome} /><br />Item 1</Tab>
+						<Tab><Icon class="primary-text" path={mdiAxe} /><br />Item 2</Tab>
+						<Tab><Icon class="primary-text" path={mdiBathtub} /><br />Item 3</Tab>
+					</div>
+				</Tabs>
+			</div>
+		</AppBar>
+
+		<Window {windowValue} class="ma-4">
+			<WindowItem>
+				<h4>Thing 1</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, diam et elementum
+					gravida, arcu mi fermentum nibh, vel dapibus ligula orci non est. Morbi commodo sagittis
+					finibus. Maecenas in volutpat massa. Nullam vulputate metus velit, quis interdum elit
+					imperdiet ut. Suspendisse et sagittis erat, euismod vulputate enim. Etiam feugiat sit amet
+					justo vitae commodo.
+				</p>
+			</WindowItem>
+			<WindowItem>
+				<h4>Item 2</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, diam et elementum
+					gravida, arcu mi fermentum nibh, vel dapibus ligula orci non est. Morbi commodo sagittis
+					finibus. Maecenas in volutpat massa. Nullam vulputate metus velit, quis interdum elit
+					imperdiet ut. Suspendisse et sagittis erat, euismod vulputate enim. Etiam feugiat sit amet
+					justo vitae commodo.
+				</p>
+			</WindowItem>
+			<WindowItem>
+				<h4>Item 3</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec accumsan, diam et elementum
+					gravida, arcu mi fermentum nibh, vel dapibus ligula orci non est. Morbi commodo sagittis
+					finibus. Maecenas in volutpat massa. Nullam vulputate metus velit, quis interdum elit
+					imperdiet ut. Suspendisse et sagittis erat, euismod vulputate enim. Etiam feugiat sit amet
+					justo vitae commodo.
+				</p>
+			</WindowItem>
+		</Window>
 	</MaterialApp>
 </section>
 

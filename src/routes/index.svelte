@@ -5,8 +5,9 @@
 <script>
 	import Counter from '$lib/Counter.svelte';
 
-	import MaterialApp from 'svelte-materialify/src/components/MaterialApp/MaterialApp.svelte';
-	import Button from 'svelte-materialify/src/components/Button/Button.svelte';
+	// import MaterialApp from 'svelte-materialify/src/components/MaterialApp/MaterialApp.svelte';
+	// import Button from 'svelte-materialify/src/components/Button/Button.svelte';
+	import { MaterialApp, Button } from 'svelte-materialify';
 </script>
 
 <svelte:head>

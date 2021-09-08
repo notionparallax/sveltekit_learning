@@ -7,7 +7,8 @@
 
 	// import MaterialApp from 'svelte-materialify/src/components/MaterialApp/MaterialApp.svelte';
 	// import Button from 'svelte-materialify/src/components/Button/Button.svelte';
-	import { MaterialApp, Button } from 'svelte-materialify';
+	import { MaterialApp, Button, Chip } from 'svelte-materialify';
+	let theme = 'light';
 </script>
 
 <svelte:head>
@@ -34,8 +35,9 @@
 </section>
 
 <section>
-	<MaterialApp>
-		<Button>Hello</Button>
+	<MaterialApp {theme}>
+		<Button>Hello Annisa!</Button>
+		<Chip close>design</Chip><Chip close>underpants</Chip><Chip close>UX</Chip>
 	</MaterialApp>
 </section>
 

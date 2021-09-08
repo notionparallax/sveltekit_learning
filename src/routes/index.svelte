@@ -7,8 +7,13 @@
 
 	// import MaterialApp from 'svelte-materialify/src/components/MaterialApp/MaterialApp.svelte';
 	// import Button from 'svelte-materialify/src/components/Button/Button.svelte';
-	import { MaterialApp, Button, Chip } from 'svelte-materialify';
+	import { MaterialApp, Button, Chip, Slider, Switch } from 'svelte-materialify';
+
 	let theme = 'light';
+
+	let slider_min = 10;
+	let slider_max = 50;
+	const values = [false, true];
 </script>
 
 <svelte:head>
@@ -38,6 +43,16 @@
 	<MaterialApp {theme}>
 		<Button>Hello Annisa!</Button>
 		<Chip close>design</Chip><Chip close>underpants</Chip><Chip close>UX</Chip>
+		<Slider
+			value={[slider_min, slider_max]}
+			thumb={[true, true]}
+			persistentThumb
+			min="3"
+			max="100"
+			step="97">Article range</Slider
+		>
+		<Switch bind:checked={values[0]} inset>Inset {values[0]}</Switch>
+		<Switch bind:checked={values[1]} inset>Inset {values[1]}</Switch>
 	</MaterialApp>
 </section>
 

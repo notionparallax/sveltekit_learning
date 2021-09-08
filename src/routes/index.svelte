@@ -4,6 +4,9 @@
 
 <script>
 	import Counter from '$lib/Counter.svelte';
+
+	import MaterialApp from 'svelte-materialify/src/components/MaterialApp/MaterialApp.svelte';
+	import Button from 'svelte-materialify/src/components/Button/Button.svelte';
 </script>
 
 <svelte:head>
@@ -27,6 +30,12 @@
 	</h2>
 
 	<Counter />
+</section>
+
+<section>
+	<MaterialApp>
+		<Button>Hello</Button>
+	</MaterialApp>
 </section>
 
 <style>

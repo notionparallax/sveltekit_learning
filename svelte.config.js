@@ -8,7 +8,11 @@ export default {
 			pages: 'docs',
 			assets: 'docs',
 			fallback: null
-		})
+		}),
+		paths: {
+			base: '/sveltekit_learning',
+			assets: 'https://notionparallax.github.io/sveltekit_learning'
+		}
 	}
 };
 

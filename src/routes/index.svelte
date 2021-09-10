@@ -44,7 +44,7 @@
 
 <section>
 	<MaterialApp {theme}>
-		<Tabs centerActive>
+		<Tabs grow>
 			<div slot="tabs">
 				<Tab>Home<Icon path={mdiHome} /></Tab>
 				<Tab>Address<Icon path={mdiAxe} /></Tab>

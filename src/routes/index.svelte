@@ -4,6 +4,7 @@
 
 <script>
 	import LoremP from '$lib/LoremP.svelte';
+	import ChipField from '$lib/ChipField.svelte';
 
 	import {
 		MaterialApp,
@@ -26,33 +27,7 @@
 	let slider_max = 50;
 	const values = [false, true];
 
-	let chips = ['work', 'office', 'design', 'le guin'];
-
 	const rules = [(v) => v.length <= 20 || 'Max 20 characters'];
-
-	const removeChip = (e) => {
-		const t = e.detail.currentTarget.closest('.s-chip').innerText;
-		chips = chips.filter((x) => x !== t);
-		console.log(chips);
-	};
-	const addChip = (e) => {
-		const field = document.getElementById('new-tag-field');
-		const incoming = field.value;
-		if (field.value.replace(',', '') != '') {
-			if (e.target.closest('button#add-tag-button') != undefined) {
-				// button specific stuff
-				chips = [...chips, incoming];
-				field.value = '';
-			} else {
-				// key press specific stuff
-				const char = typeof e !== 'undefined' ? e.keyCode : e.which; //I copied this without understanding it
-				if ([59, 44, 13, 186, 188].includes(char)) {
-					chips = [...chips, incoming.replace(',', '').replace(';', '')];
-					field.value = '';
-				}
-			}
-		}
-	};
 </script>
 
 <svelte:head>
@@ -111,22 +86,15 @@
 					step={1}>Article range</Slider
 				> -->
 				<div>
-					<p>
-						TODO: bind this to the variable, or to a store, or to the DB or something ¯\_( ͡° ͜ʖ ͡°)_/¯
-					</p>
+					<p>TODO: bind this to a store, or to the DB or something ¯\_( ͡° ͜ʖ ͡°)_/¯</p>
 					<h4>Tags:</h4>
-					{#each chips as chipname}
-						<Chip close on:close={removeChip}>{chipname}</Chip>
-					{/each}<TextField solo placeholder="New tag" on:keyup={addChip} id="new-tag-field">
-						<div slot="append-outer">
-							<Button on:click={addChip} icon class="pink-text" id="add-tag-button">
-								<Icon path={mdiTagPlus} />
-							</Button>
-						</div>
-					</TextField>
+					<ChipField />
+					<h4>Search terms:</h4>
 					<p>
-						Tags are: {#each chips as chipname}{chipname}, {/each}
+						TODO: make the js inside the component look for <em>this</em> input, not using
+						<code>document</code>
 					</p>
+					<ChipField />
 				</div>
 				<LoremP />
 				<Switch bind:checked={values[0]} inset>Inset {values[0]}</Switch>
